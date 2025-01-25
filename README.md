@@ -1,4 +1,4 @@
-Sensor Communication ROS 2 Node
+Communication of sensors through ROS2
 
 This ROS 2 node communicates with a sensor over TCP port 2000, following a specific communication protocol for sending and receiving messages. The sensor acts as the TCP server, while the ROS 2 node acts as the client to send commands and receive status updates.
 Features
@@ -39,29 +39,12 @@ Parameters
 
     interval (integer, default: 1000): The interval (in milliseconds) at which the start command will be sent to the sensor.
 
-Installation
 
-    Clone the repository into your ROS 2 workspace:
+**To launch the node with a custom interval, use:**
 
-git clone <repository_url> ~/ros2mooc/src/sensor_package
+ros2 launch sensor_package sensor_launch.py interval:=1000
 
-Build the workspace:
-
-cd ~/ros2mooc
-colcon build --symlink-install
-
-Source the workspace:
-
-    source ~/ros2mooc/install/setup.bash
-
-Usage
-Launch the Node
-
-To launch the node with a custom interval, use:
-
-ros2 launch sensor_package sensor_launch.py interval:=500
-
-This will start sending the start command to the sensor with a 500 millisecond interval. You can adjust the interval value as needed.
+This will start sending the start command to the sensor with a 1000 millisecond interval. You can adjust the interval value as needed.
 Start and Stop the Sensor
 
 To start or stop the sensor communication, you can modify the interval parameter or stop the node manually.
@@ -94,8 +77,5 @@ Status Message
 Code Overview
 
 The Python-based ROS 2 node uses the socket library to communicate with the sensor over TCP and rclpy to interact with ROS 2. The node sends commands to the sensor, receives status messages, decodes them, and publishes the values to the appropriate ROS 2 topics.
-License
-
-This code is released under the MIT license. Please refer to the LICENSE file for more details.
 
 This should provide clear instructions on how to set up and use the ROS 2 node for your sensor communication project! Let me know if you need anything else.
