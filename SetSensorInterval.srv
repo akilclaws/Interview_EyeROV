@@ -1,0 +1,4 @@
+int32 interval  # Interval in milliseconds (0 to stop the sensor)
+---
+bool success  # True if command is sent successfully
+
